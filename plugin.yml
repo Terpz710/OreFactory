@@ -1,0 +1,9 @@
+name: OreFactory
+version: 1.0.0
+author: Terpz710
+api: 5.0.0
+main: terpz710\orefactory\OreFactory
+
+permissions:
+  orefactory.cmd:
+    default: op
