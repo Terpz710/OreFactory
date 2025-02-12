@@ -1,4 +1,6 @@
 # Description
+Randomly spawns ore once a player places a generator.
+
 This plugin is in **WIP**!
 
 
