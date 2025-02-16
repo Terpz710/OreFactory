@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace terpz710\orefactory;
 
+use pocketmine\data\bedrock\EnchantmentIdMap;
 use pocketmine\event\Listener;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\block\BlockBreakEvent;
@@ -83,7 +84,7 @@ class EventListener implements Listener {
                 "§r§f(§e!§f) Once placed, a random ore will generate on top of the generator!",
                 ""
             ]);
-            $item->addEnchantment(new EnchantmentInstance(VanillaEnchantments::FORTUNE(), 3));
+            $item->addEnchantment(new EnchantmentInstance(EnchantmentIdMap::getInstance()->fromId(OreFactory::FAKE_ENCH_ID), 1));
 
             $nbt = $item->getNamedTag();
             $nbt->setTag("Generator", new StringTag("ore_gen"));
