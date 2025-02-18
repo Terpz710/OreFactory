@@ -12,7 +12,8 @@ use pocketmine\plugin\PluginBase;
 class OreFactory extends PluginBase {
 
     protected static self $instance;
-    public const int FAKE_ENCH_ID = -1;
+    
+    public const FAKE_ENCH_ID = -1;
 
     protected GeneratorBlock $gen;
 
