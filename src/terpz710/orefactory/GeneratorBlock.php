@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace terpz710\orefactory;
 
+use pocketmine\data\bedrock\EnchantmentIdMap;
 use pocketmine\player\Player;
 
 use pocketmine\item\Item;
@@ -29,7 +30,7 @@ final class GeneratorBlock {
             "§r§f(§e!§f) Onced placed random ore will generate on top of the generator!",
             ""
         ]);
-        $block->addEnchantment(new EnchantmentInstance(VanillaEnchantments::FORTUNE(), 3));
+        $block->addEnchantment(new EnchantmentInstance(EnchantmentIdMap::getInstance()->fromId(OreFactory::FAKE_ENCH_ID), 1));
         $nbt = $block->getNamedTag();
         $nbt->setTag("Generator", new StringTag("ore_gen"));
         $block->setNamedTag($nbt);
