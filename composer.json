@@ -1,0 +1,16 @@
+{
+    "name": "terpz710/orefactory",
+    "type": "project",
+    "license": "GNU General Public License v3.0",
+    "require": {
+        "pocketmine/pocketmine-mp": "^5.0.0",
+        "poggit/libasynql": "*",
+        "cortexpe/commando": "*",
+        "terpz710/pocketforms": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "OreFactory\\": "src/OreFactory"
+        }
+    }
+}
