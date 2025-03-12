@@ -37,13 +37,13 @@ final class UpgradeManager {
     }
 
     public function init(Player $player) : void{
-        $uuid = $player->getUniqueId()->getBytes();
+        $uuid = $player->getUniqueId()->toString();
 
         $this->db->executeChange("generators.insert", ["uuid" => $uuid]);
     }
 
     public function getGeneratorLevel(Player $player, callable $callback) : void{
-        $uuid = $player->getUniqueId()->getBytes();
+        $uuid = $player->getUniqueId()->toString();
 
         $this->db->executeSelect("generators.select_level", ["uuid" => $uuid], function(array $rows) use ($callback) {
             $callback($rows[0]["level"]);
@@ -51,7 +51,7 @@ final class UpgradeManager {
     }
 
     public function upgradeGenerator(Player $player) : void{
-        $uuid = $player->getUniqueId()->getBytes();
+        $uuid = $player->getUniqueId()->toString();
 
         $this->getGeneratorLevel($player, function(int $currentLevel) use ($player, $uuid) {
             if ($currentLevel >= 5) {
