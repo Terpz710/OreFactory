@@ -24,6 +24,8 @@ class EventListener implements Listener {
     protected array $ores = [];
 
     public function __construct(protected OreFactory $plugin) {
+        $this->plugin = $plugin;
+        
         $this->ores = [
             VanillaBlocks::COAL_ORE(),
             VanillaBlocks::IRON_ORE(),
