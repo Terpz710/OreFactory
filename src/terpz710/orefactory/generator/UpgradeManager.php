@@ -36,10 +36,14 @@ final class UpgradeManager {
         $this->db->executeGeneric("table.generators");
     }
 
-    public function init(Player $player) : void{
+    public function init(Player $player) : void {
         $uuid = $player->getUniqueId()->toString();
 
-        $this->db->executeChange("generators.insert", ["uuid" => $uuid]);
+        $this->db->executeSelect("generators.select_level", ["uuid" => $uuid], function(array $rows) use ($uuid) {
+            if (empty($rows)) {
+                $this->db->executeChange("generators.insert", ["uuid" => $uuid]);
+            }
+        });
     }
 
     public function getGeneratorLevel(Player $player, callable $callback) : void{
