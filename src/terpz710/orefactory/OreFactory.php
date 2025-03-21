@@ -18,6 +18,8 @@ use terpz710\orefactory\command\GeneratorCommand;
 
 use CortexPE\Commando\PacketHooker;
 
+use DaPigGuy\libPiggyUpdateChecker\libPiggyUpdateChecker;
+
 class OreFactory extends PluginBase {
 
     protected static self $instance;
@@ -44,15 +46,13 @@ class OreFactory extends PluginBase {
         $this->gen = new GeneratorBlock($this);
         $this->upgrade = new UpgradeManager($this);
 
-        $this->upgrade->table();
+        libPiggyUpdateChecker::init($this);
 
         EnchantmentIdMap::getInstance()->register(
             self::FAKE_ENCH_ID,
             new Enchantment("Glow", 1, ItemFlags::ALL, ItemFlags::NONE, 1)
         );
     }
-
-    protected function onDisable() : void{ $this->upgrade->close(); }
 
     public static function getInstance() : self{ return self::$instance; }
 
