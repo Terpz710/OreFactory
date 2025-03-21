@@ -8,7 +8,7 @@ use pocketmine\event\Listener;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\player\PlayerInteractEvent;
-//use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerJoinEvent;
 
 use pocketmine\block\VanillaBlocks;
 use pocketmine\block\BlockTypeIds;
@@ -86,7 +86,7 @@ class EventListener implements Listener {
         }
     }
 
-    /*public function onJoin(PlayerJoinEvent $event) : void{
+    public function onJoin(PlayerJoinEvent $event) : void{
         $this->plugin->getUpgradeManager()->init($event->getPlayer());
-    }*/
+    }
 }
