@@ -6,11 +6,11 @@ projects:
   OreFactory:
     path: ""
     libs:
-      - src: poggit/libasynql/libasynql
-        version: ^4.2.3
       - src: ACM-PocketMine-MP/Commando/Commando
         version: ^3.2.1
       - src: terpz710/pocketforms/PocketForms
+        version: ^1.0.0
+      - src: DaPigGuy/libPiggyUpdateChecker/libPiggyUpdateChecker
         version: ^1.0.0
     lint: false
 ...
