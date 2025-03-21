@@ -12,9 +12,9 @@ use terpz710\orefactory\OreFactory;
 
 final class UpgradeManager {
 
-    private Config $data;
+    protected Config $data;
 
-    private array $generatorSpeeds = [
+    protected array $generatorSpeeds = [
         1 => 10,
         2 => 9,
         3 => 8,
@@ -22,13 +22,13 @@ final class UpgradeManager {
         5 => 6
     ];
 
-    public function __construct(private OreFactory $plugin) {
+    public function __construct(protected OreFactory $plugin) {
         $this->plugin = $plugin;
         
         $this->data = new Config($this->plugin->getDataFolder() . "data.json");
     }
 
-    public function init(Player $player) : void {
+    public function init(Player $player) : void{
         $uuid = $player->getUniqueId()->toString();
 
         if (!$this->data->exists($uuid)) {
