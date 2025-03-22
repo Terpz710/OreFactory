@@ -37,6 +37,8 @@ class OreFactory extends PluginBase {
 
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
 
+        libPiggyUpdateChecker::init($this);
+
         if (!PacketHooker::isRegistered()) {
             PacketHooker::register($this);
         }
@@ -45,8 +47,6 @@ class OreFactory extends PluginBase {
 
         $this->gen = new GeneratorBlock($this);
         $this->upgrade = new UpgradeManager($this);
-
-        libPiggyUpdateChecker::init($this);
 
         EnchantmentIdMap::getInstance()->register(
             self::FAKE_ENCH_ID,
